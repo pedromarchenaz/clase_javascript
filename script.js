@@ -240,3 +240,121 @@ switch(a){
     default:
         console.log('Ningun de los dos valores');
 }
+
+// FUNCIONES
+
+function saludar(){
+    console.log('Hola  Mundo')
+}
+saludar();
+
+// Variable Local
+function saludar_nombre(){
+    let nombre_xx = 'Pedro';
+    console.log(`Hola ${nombre_xx}`);
+}
+//console.log('Hola ${nombre_xx}');
+
+// Variable Externa
+let nombre_xxx = 'Pedro';
+function saludar_nombre(){  
+    console.log(`Hola ${nombre_xxx}`);
+}
+console.log(`Hola ${nombre_xxx}`);
+
+// Parametros
+console.log('***********')
+function mensaje_(de, texto){
+    console.log(`${de}: ${texto}`);
+}
+mensaje_('Pedro','Hola Maria');
+mensaje_('Maria','Hola Pedro');
+
+function mensaje_2(de, texto=''){
+    console.log(`${de}: ${texto}`);    
+}
+mensaje_2('Pedro');
+mensaje_2('Maria', 'Hola  Pedro');
+
+// Retornos en JavaScript
+
+function sumar(a, b){
+    return a +  b;
+}
+
+function sumar_dos(a, b){
+    return null;
+}
+console.log(sumar(4,5));
+console.log(sumar(4.5,5.6));
+console.log(sumar_dos(4, 5))
+
+
+// Sumatoria de los numeros pares de 1 al x
+function es_par(x){
+    return x % 2 == 0;
+}
+
+function sumatoria_pares_dos(x){
+    sumatoria = 0;
+    for (i=0; i<=x; i++) {
+        if (es_par(i)){
+            sumatoria = sumatoria + i;
+        } 
+    }
+    return sumatoria;
+}
+
+console.log('Método dos:', sumatoria_pares_dos(10));
+
+
+function hola_(){
+    return 'Hola Mundo';
+}
+console.log(hola_());
+console.log(hola_);
+let aux = hola_;
+console.log('Invoco auxiliar',  aux());
+
+// Expresion de una función
+let hola_dos = function(){
+    return 'Hola Mundo  Dos';
+}
+console.log(hola_dos);
+aux = hola_;
+console.log('Invoco auxiliar',  aux());
+
+// Funciones Flecha
+let hola_tres = function(){
+    console.log('Hola Mundo Tres');
+}
+
+let hola_tres_retorno = function(){
+    return 'Hola Mundo Tres';
+}
+
+hola_tres_retorno = () => {
+    return 'Hola Mundo Tres';
+}
+
+
+// Callback
+function decidir(pregunta, si, no){
+    if(confirm(pregunta)){
+        si();
+    }else{
+        no();
+    }
+}
+
+let si = () => alert('La persona dijo que si !!');
+let no = () => alert('La persona dijo que no !!');
+
+//decidir('¿Estas interesado en aprender JavaScript?', si, no);
+
+// Creacion de funciones dinamicas
+let saludar_edad = (edad > 18) ?
+    () => console.log('Es mayor de edad'):
+    () => console.log('Es menor de edad');
+
+saludar_edad();
